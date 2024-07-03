@@ -13,6 +13,7 @@ import 'package:task_ease/features/home/logic/fetch%20task%20cubit/fetch_task_cu
 import '../../../../core/notification/recieved_notification.dart';
 import '../../../../core/styles/colors.dart';
 import '../../../../core/styles/text_styles.dart';
+import '../../../../core/utils/snack_bar.dart';
 
 
 class TaskForm extends StatefulWidget {
@@ -124,11 +125,11 @@ bool isTaped=false;
                       selectedDate: initialDate!,
                       selectedTime: initialTime!.format(context));
                   BlocProvider.of<AddTaskCubit>(context).addTask(taskModel);
-                  await NotificationHelper.showNotification(hashCode,taskGroupController.text, projectNameController.text,);
-                  if(!mounted) return;
                   BlocProvider.of<FetchTaskCubit>(context).fetchAllTasks();
+                  ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Task was added successfully',color: Colors.white),);
                   context.pop();
-                  await NotificationHelper.showScheduledNotification(hashCode, taskGroupController.text, projectNameController.text, DateTime(initialDate!.year,initialDate!.month,initialDate!.day,initialTime!.hour,initialTime!.minute));
+                  if(!mounted) return;
+   await NotificationHelper.showScheduledNotification(hashCode, taskGroupController.text, projectNameController.text, DateTime(initialDate!.year,initialDate!.month,initialDate!.day,initialTime!.hour,initialTime!.minute));
 
                 }
                 else{

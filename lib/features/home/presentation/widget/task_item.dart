@@ -64,6 +64,8 @@ final TaskModel taskModel;
                 12.ph,
                 Text(taskModel.projectName,style: TextStyles.font18SemiBold,),
                 12.ph,
+              Text(taskModel.description,style: TextStyles.font15Medium,),
+                12.ph,
                 Row(
                   children: [
                     Icon(Icons.access_time_filled_rounded,size: 20.sp,color: ColorsManager.kPrimaryLightColor,),
