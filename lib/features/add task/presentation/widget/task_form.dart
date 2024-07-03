@@ -124,11 +124,11 @@ bool isTaped=false;
                       selectedDate: initialDate!,
                       selectedTime: initialTime!.format(context));
                   BlocProvider.of<AddTaskCubit>(context).addTask(taskModel);
-                  await NotificationHelper.showNotification(taskGroupController.text, projectNameController.text,);
+                  await NotificationHelper.showNotification(hashCode,taskGroupController.text, projectNameController.text,);
                   if(!mounted) return;
                   BlocProvider.of<FetchTaskCubit>(context).fetchAllTasks();
                   context.pop();
-
+                  await NotificationHelper.showScheduledNotification(hashCode, taskGroupController.text, projectNameController.text, DateTime(initialDate!.year,initialDate!.month,initialDate!.day,initialTime!.hour,initialTime!.minute));
 
                 }
                 else{
