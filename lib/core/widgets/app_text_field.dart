@@ -75,7 +75,9 @@ class AppTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon,
       ),
       obscureText: isObscureText??false,
-      style: inputTextStyle?? TextStyles.font15Medium,
+      style: inputTextStyle?? TextStyles.font15Medium.copyWith(
+        color: Colors.black,
+      ),
     );
   }
 }
