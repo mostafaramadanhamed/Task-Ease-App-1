@@ -1,6 +1,3 @@
-/*
-
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +9,7 @@ import 'date_time_horizontal.dart';
 
 
 class HomeBody extends StatefulWidget {
-  const HomeBody({Key? key}) : super(key: key);
+  const HomeBody({Key? key, }) : super(key: key);
 
   @override
   State<HomeBody> createState() => _HomeBodyState();
@@ -23,6 +20,7 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   void initState() {
+    dateTime=DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day,00,00,00,000);
     super.initState();
     BlocProvider.of<FetchTaskCubit>(context,).fetchAllTasks();
   }
@@ -36,13 +34,13 @@ class _HomeBodyState extends State<HomeBody> {
             children: [
               16.ph,
               DatePickerHorizontal(
-                dateTime: dateTime??DateTime.now(), onDateChange: (date) {
+                dateTime: dateTime!, onDateChange: (date) {
                 setState(() {
                   dateTime = date;
                 });
               },),
               32.ph,
-              Expanded(child: TaskListview(dateTime: dateTime??DateTime.now(),)),
+              Expanded(child: TaskListview(dateTime: dateTime!,)),
             ],
           ),
         ),
