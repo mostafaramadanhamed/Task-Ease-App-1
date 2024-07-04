@@ -24,7 +24,7 @@ class TaskEaseApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           title: "Task Ease",
-          initialRoute: Routes.onBoardingScreen,
+          initialRoute: Routes.initialScreen,
           onGenerateRoute: appRouter.generateRoute,
         ),
       ),

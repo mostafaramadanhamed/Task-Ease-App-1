@@ -3,6 +3,7 @@ import 'package:task_ease/core/routing/routes.dart';
 import 'package:task_ease/features/add%20task/data/models/task_model.dart';
 import 'package:task_ease/features/add%20task/presentation/add_task_screen.dart';
 import 'package:task_ease/features/edit%20task/presentation/edit_task_screen.dart';
+import 'package:task_ease/features/initial/initial_screen.dart';
 import 'package:task_ease/features/onboarding/presesntation/onboarding_screen.dart';
 import '../../features/home/presentation/home_screen.dart';
 
@@ -13,7 +14,7 @@ class AppRouter {
     switch (settings.name) {
       case Routes.initialScreen:
         return MaterialPageRoute(
-          builder: (_) => const Placeholder(),
+          builder: (_) => const LoadingScreen(),
         );
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
