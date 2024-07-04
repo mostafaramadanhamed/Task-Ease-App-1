@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_ease/core/styles/text_styles.dart';
 import 'package:task_ease/core/utils/spacing_extension.dart';
 import 'package:task_ease/features/add%20task/data/models/task_model.dart';
 import 'package:task_ease/features/home/logic/fetch%20task%20cubit/fetch_task_cubit.dart';
@@ -19,7 +20,7 @@ class TaskListview extends StatelessWidget {
               .where((element) => element.selectedDate == dateTime)
               .toList();
 
-          return ListView.separated(
+          return tasks.isNotEmpty ?ListView.separated(
             separatorBuilder: (context, index) {
               return 16.ph;
             },
@@ -31,7 +32,7 @@ class TaskListview extends StatelessWidget {
                 taskModel: tasks[index],
               );
             },
-          );
+          ):Center(child: Text("No Tasks Yet \n Add More",style: TextStyles.font18SemiBold,),);
         },
       );
     }
